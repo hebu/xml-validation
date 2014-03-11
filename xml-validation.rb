@@ -2,14 +2,16 @@ require 'nokogiri'
 require 'open-uri'
 
 unless ARGV.length > 0
-  puts "Usage: jruby xml-validation.rb <xml-input-file> <optional-schema-url>"
+  puts "Usage: jruby xml-validation.rb <xml-input-file> <optional-schema-url(s)>"
   return
 end
 
 xml_input_file = ARGV[0].to_s
 xsd_uris = []
 if ARGV.length > 1
-  xsd_uris << ARGV[1].to_s
+  1.upto(ARGV.length) do |idx|
+    xsd_uris << ARGV[idx].to_s
+  end
 end
 
 puts "Validating #{xml_input_file} ..."
