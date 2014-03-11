@@ -9,7 +9,7 @@ end
 xml_input_file = ARGV[0].to_s
 xsd_uris = []
 if ARGV.length > 1
-  1.upto(ARGV.length) do |idx|
+  1.upto(ARGV.length - 1) do |idx|
     xsd_uris << ARGV[idx].to_s
   end
 end
